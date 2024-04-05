@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Doctor Register</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'doc/csss/sourcesanspro-font.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'doc/csss/style.css' %}"/>
+</head>
+<body class="form-v8">
+	<div class="page-content">
+		<div class="form-v8-content">
+			<div class="form-left">
+				<p><br><br><br><img src="{% static 'doc/images/nurse-practitioner-trends-2019-compressed.jpg' %}" alt="form" style="width: 500px; height: 600px;">
+                Chatbot Health Care Hospital</p>
+			</div>
+			<div class="form-right">
+				<div class="tab">
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+					</div>
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
+					</div>
+				</div>
+				<form class="form-detail" action="{% url 'registerdoc' %}" method="post">
+                    {% csrf_token %}
+					<div class="tabcontent" id="sign-up">
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="uname" id="full_name" class="input-text" required>
+								<span class="label">Username</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="your_email" id="your_email" class="input-text" required>
+								<span class="label">E-Mail</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="password" name="password" id="password" class="input-text" required>
+								<span class="label">Password</span>
+								<span class="border"></span>
+							</label>
+						</div>
+                        <div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="your_number" id="your_number" class="input-text" required>
+								<span class="label">Number</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+                        <div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="your_location" id="your_location" class="input-text" required>
+								<span class="label">Location</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+                        <div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="your_qua" id="your_qua" class="input-text" required>
+								<span class="label">Qualification</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+                        <div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="your_experience" id="your_experience" class="input-text" required>
+								<span class="label">Experience</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Register">
+						</div>
+					</div>
+				</form>
+				<form class="form-detail" action="{% url 'RegDoc' %}" method="post">
+                    {% csrf_token %}
+					<div class="tabcontent" id="sign-in">
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="uname" id="uname" class="input-text" required>
+								<span class="label">Username</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="password" name="password" id="password" class="input-text" required>
+								<span class="label">Password</span>
+								<span class="border"></span>
+							</label>
+						</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Sign In">
+						</div>
+					</div>
+				</form>
+                <p>{{msg}}</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+		    var i, tabcontent, tablinks;
+		    tabcontent = document.getElementsByClassName("tabcontent");
+		    for (i = 0; i < tabcontent.length; i++) {
+		        tabcontent[i].style.display = "none";
+		    }
+		    tablinks = document.getElementsByClassName("tablinks");
+		    for (i = 0; i < tablinks.length; i++) {
+		        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    }
+		    document.getElementById(cityName).style.display = "block";
+		    evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

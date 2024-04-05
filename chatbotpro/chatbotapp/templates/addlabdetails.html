@@ -1,0 +1,133 @@
+{% extends 'indexchatbot.html' %}
+{% block content %} 
+{% load static %}
+<header class="site-header section-padding d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12">
+                <h2>
+                    <span class="d-block text-primary">We provide you,We all need doctors in our life very often</span>
+                    <span class="d-block text-dark">They are available 24 hours a day</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <section class="product-detail section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+                <div class="product-thumb">
+                    <img src="{% static 'images/slideshow/closed-due-to-covid-19-iStock-1216449625.jpg' %}" class="img-fluid product-image" alt="">
+                </div>
+                <div class="product-thumb">
+                    <img src="{% static 'images/slideshow/Covid-19-1080x675.png' %}" class="img-fluid product-image" alt="">
+                </div>
+            </div>
+
+             <div class="col-lg-6 col-12">
+                <div class="product-info d-flex">
+                    <div>
+                        <h2 class="product-title mb-0">Upload Details</h2>
+
+                    </div>
+
+                </div>
+
+                <div class="product-cart-thumb row">
+                    <div class="col-lg-12 col-12">
+                        <form role="form" action="{% url 'lablist' %}" method="post"  enctype='multipart/form-data'>
+                            {% csrf_token %}
+
+                                <div class="form-floating mb-6 p-0">
+                                    <input type="text" name="Name" id="Name" class="form-control" placeholder="Enter Patient Name" required>
+
+                                    <label for="Name">Patient Name</label>
+                                </div>
+                                <br>
+                                <div class="form-floating mb-6 p-0">
+                                    <input type="number" name="number" id="number" class="form-control" placeholder="Enter Phone Number" required>
+
+                                    <label for="number">Phone Number</label>
+                                </div>
+                                <br>
+                                <div class="form-floating mb-6 p-0">
+                                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter Age" required>
+
+                                    <label for="Age">Age</label>
+                                </div>
+                                <br>
+                                <div class="form-floating mb-6 p-0">
+                                    <input type="file" name="img" id="img" class="form-control"  required>
+
+                                    <label for="img">Scanning Report</label>
+                                </div>
+                                <br>
+                                <div class="form-floating mb-6 p-1">
+                                    <label for="img">Gender</label>
+                                    <div class="modal-gender-choice form-control ">
+                                         
+                                        <div class="modal-gender-name">
+                                             
+                                            <label for="">Female</label>
+                                             
+                                            <input type="radio"  value="female" name="gender">
+                                        
+                                             
+                                            <label for="">Male</label>
+                                             
+                                            <input type="radio" value="male" name="gender">
+                                         
+                                             
+                                            <label for="">Custom</label>
+                                             
+                                            <input type="radio" value="custom" name="gender">
+                                             
+                                        </div>
+                                      
+                                     </div>
+                                </div>
+                                <br>
+                                <div class="form-floating mb-6 p-0">
+                                    <input type="text" name="dr_name" id="drname" class="form-control" placeholder="Enter Doctor Name" required>
+
+                                    <label for="dr_name">Doctor Name</label>
+                                </div>
+<br>
+                                <select  class="form-control" name="bgroup" id="inputGroupSelect01">
+                                    <label for="b_group">Blood Group</label>
+                                    <option selected >Blood Group</option>
+                                    <option value="1">A+</option>
+                                    <option value="5">A-</option>
+                                    <option value="2">B+</option>
+                                    <option value="5">B-</option>
+                                    <option value="3">O+</option>
+                                    <option value="4">O-</option>
+                                    <option value="5">AB-</option>
+                                    <option value="5">AB-</option>
+                                    <option value="5">Rh-pos</option>
+                                    <option value="5">Rh-neg</option>
+                                </select>
+                                <br>
+<br>
+                                <button type="submit" class="btn-3 custom-btn form-control mt-6 mb-3">
+                                    Submit
+                                </button>  
+                                                             
+                                
+                        </form>
+                    </div>                           
+                </div>
+
+            </div> 
+
+        </div>
+    </div>
+  </section>
+
+ 
+
+{%endblock%}
